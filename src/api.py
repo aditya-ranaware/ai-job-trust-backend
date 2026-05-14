@@ -30,6 +30,11 @@ from src.trust_score import calculate_trust_score, classify_job
 from src.file_extractor import extract_text_from_pdf, extract_text_from_image
 from src.risk_intelligence import generate_professional_report
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+UPLOAD_FOLDER = os.path.join(BASE_DIR, "uploads")
+
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
 app = Flask(__name__)
 CORS(app)
 # =====================================
@@ -172,7 +177,8 @@ def predict_pdf():
 
         filename = secure_filename(file.filename)
 
-        upload_path = os.path.join("uploads", filename)
+        # upload_path = os.path.join("uploads", filename)
+        upload_path = os.path.join(UPLOAD_FOLDER, filename)
         file.save(upload_path)
 
         extracted_text = extract_text_from_pdf(upload_path)
@@ -205,7 +211,8 @@ def predict_image():
 
         filename = secure_filename(file.filename)
 
-        upload_path = os.path.join("uploads", filename)
+        # upload_path = os.path.join("uploads", filename)
+        upload_path = os.path.join(UPLOAD_FOLDER, filename)
         file.save(upload_path)
 
         extracted_text = extract_text_from_image(upload_path)
