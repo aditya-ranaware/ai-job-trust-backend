@@ -9,3 +9,4 @@ joblib
 PyMuPDF
 pytesseract
 pillow
+gunicorn
