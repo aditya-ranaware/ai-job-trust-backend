@@ -3,8 +3,9 @@
 # Generates Professional Job Trust Report
 # =====================================
 
-from verification_engine import run_verification_engine
+# from verification_engine import run_verification_engine
 
+from src.verification_engine import run_verification_engine
 
 def get_risk_level(score):
     """

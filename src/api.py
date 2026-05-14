@@ -18,11 +18,17 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Import modules
-from feature_engineering import create_features, get_feature_matrix
-from company_validation import get_company_score
-from trust_score import calculate_trust_score, classify_job
-from file_extractor import extract_text_from_pdf, extract_text_from_image
-from risk_intelligence import generate_professional_report
+# from feature_engineering import create_features, get_feature_matrix
+# from company_validation import get_company_score
+# from trust_score import calculate_trust_score, classify_job
+# from file_extractor import extract_text_from_pdf, extract_text_from_image
+# from risk_intelligence import generate_professional_report
+
+from src.feature_engineering import create_features, get_feature_matrix
+from src.company_validation import get_company_score
+from src.trust_score import calculate_trust_score, classify_job
+from src.file_extractor import extract_text_from_pdf, extract_text_from_image
+from src.risk_intelligence import generate_professional_report
 
 app = Flask(__name__)
 CORS(app)
